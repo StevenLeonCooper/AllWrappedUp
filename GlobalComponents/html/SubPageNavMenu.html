@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="SubPageNavMenu">
+        <button type="button" class="Fixed-TopLeft" data-click="MinifyNavMenu" id="MinifyNavButton">&laquo; Toggle Menu &raquo;</button>
+
+        <hr style="margin-top:45px;" />
+
+        <div class="nav-block">
+            <strong>Select View</strong>
+            <br />
+            <!--<select class="nav-drop" id="ViewSelection" name="SVS" data-change="UpdateView">
+                <option value="Default">Unit Data Cards</option>
+                <option value="BasicStatTable">Basic Stat Table</option>
+            </select>-->
+
+            <a href="#Default">Unit Data Card</a>
+            <br />
+            <a href="#BasicStatTable">Basic Stats Table</a>
+            <br />
+            <a href="#RedditAnalysisBuilder">Reddit Analysis Builder</a>
+            <br />
+            <a href="#RedditFormatter">Reddit JP Batch Formatter</a>
+        </div>
+
+        <div class="nav-block">
+            <strong>Select Star Level</strong>
+            <br />
+            <select class="nav-drop" id="StarLevelSelection" name="SLS">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+        </div>
+        <div class="nav-block">
+            <strong>Select Element</strong>
+            <br />
+            <select class="nav-drop" id="ElementSelection" name="SES">
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="earth">Earth</option>
+                <option value="thunder">Thunder</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select>
+        </div>
+        <hr />
+        <div id="UpdateWrapper">
+            <button id="UpdateButton" type="button" data-click="UpdateData">Update Unit Data</button>
+        </div>
+        <hr />
+        <div id="devnotes">
+            <strong>Known Bugs</strong>
+            <ul>
+                <li>Some info displays strangely for units that heal</li>
+                <li>Display needs serious refinement</li>
+                <li>Report Bugs on Reddit by contacting <a href="http://reddit.com/u/saggyfire">/u/saggyfire</a></li>
+            </ul>
+
+            <strong>Upcoming Features</strong>
+            <ul>
+                <li>Instant filtering based on parameters (Element, Cost, etc.)</li>
+                <li>UI Overhaul for clarity and usability</li>
+                <li>Automated Ranking Sections and Long-Term Tier Integration</li>
+                <li>Side-by-Side Unit Comparisons</li>
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

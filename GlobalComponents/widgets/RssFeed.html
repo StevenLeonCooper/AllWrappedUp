@@ -1,0 +1,59 @@
+﻿<div id="column-left">
+    <div class="highlight_box3" style="margin-top: 15px">
+        <div class="highlight_content feed-content" style="padding: 0px 12px">
+            <div class="feedburnerFeedBlock" id="economist/ykeOksei8g8fb0l8noceab55000n5o">
+                <script>
+                    function parseRSS(url, callback) {
+
+                        $.ajax({
+                            url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+                            dataType: 'json',
+                            success: function (data) {
+                                callback(data.responseData.feed);
+                            }
+                        });
+                    }
+
+                    var FeedName = $("#column-left").closest(".rss-widget").attr("id") || "EventWidget";
+
+                    var FeedObject = window.rssFeeds[FeedName] || {};
+
+                    var feedUrl = FeedObject.FeedUrl || "http://bizblogs.fullerton.edu/feed/";
+
+                    var feedFilter = FeedObject.FeedCategory || false;
+
+                    var feedLimit = FeedObject.FeedLimit || 7;
+
+                    parseRSS(feedUrl, function (rss) {
+                        $("#" + FeedName + " .feed-content")
+                            .empty()
+                            .append("<p class='feedTitle'><a href='" + rss.link + "'>" + rss.title + "</a></p>")
+                            .append("<ul id='" + FeedName + "-rss-ul' style='margin-left:-20px;'>");
+
+                        $("#" + FeedName + "-rss-ul").empty();
+
+                        for (var i = 0; i < feedLimit; i++) {
+                            var value = rss.entries[i];
+
+                            if (feedFilter === false || (value.category === feedFilter)) {
+                                $("<li style='list-style: url(\"/GlobalComponents/assets/list-arrow.gif\");'>")                                    
+                                    .appendTo("#" + FeedName + "-rss-ul")
+                                    .append("<span class='headline'><a href='" + value.link + "'>" + value.title + "</a></span>")
+                                    .append("<div>" + value.contentSnippet + "</div>")
+                            }
+
+                        }
+
+                        window.ecNewsRss = rss;
+                    });
+
+                </script>
+                <noscript>
+                    <p>
+                        <a href="http://bizblogs.fullerton.edu">Visit Our Blog for Updates</a>
+                    </p>
+                </noscript>
+            </div>
+        </div>
+    </div>
+</div>

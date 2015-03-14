@@ -1,0 +1,68 @@
+﻿
+.ElementSelector
+{
+    min-width:180px;
+}
+
+button {
+    min-width:180px;
+    margin:3px;
+}
+
+#UpdateWrapper{
+    text-align:center;
+}
+
+#UpdateButton{
+    margin-left:auto;
+    margin-right:auto;
+    padding-top:5px;
+    padding-bottom:5px;
+
+}
+
+#MainMenu{
+    margin:10px;
+    padding:10px;
+}
+
+#MainMenu li
+{
+    margin:0px;
+    padding:0px;
+}
+
+#devnotes{
+    padding:5px;
+}
+
+#devnotes ul{
+
+    padding-left:5px;
+    margin-left:5px;
+
+}
+
+#devnotes ul li
+{
+    font-size:75%;
+}
+
+.Fixed-TopLeft
+{
+    position:fixed;
+    top:15px;
+    left:10px;
+    z-index:100;
+}
+
+.nav-drop{
+    width:120px;
+    margin:5px;
+}
+
+
+.nav-block{
+    padding:3px;
+    margin:4px;
+}

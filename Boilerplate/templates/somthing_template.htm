@@ -1,0 +1,19 @@
+﻿<script type="text/template" id="something_template" data-something="{{context.yesYouCanBindAnything}}">
+    <h1>This title can be bound as {{context.title}} with Mustache!</h1>
+    <p>
+        Templates are just Script tags 99% of the time.
+        They can contain whatever you want but jQuery won't parse the Body tag
+        so expect odd results if you try doing a whole page with templates.
+    </p>
+    <p>
+        Templates can easily have multi-level  binding. The curly braces are
+        for initial binding, before the template is actually used. 
+        <br />
+
+        When you go to use the template you'll likely want to use [[newContext.whatTypeOfBraceToUse]]
+        (Square Braces) instead so your curly braces don't get stolen out from under you!
+        <br />
+
+        Currently formatting is built-in using Curly Braces, Square Braces and Double Parenthesis (not recommended). 
+    </p>
+</script>

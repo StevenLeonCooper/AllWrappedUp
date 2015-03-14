@@ -1,0 +1,69 @@
+﻿
+.MainTitleText {
+    font-family:TitleSans;
+
+    border: 1px solid #000;
+
+    font-size: 2em;
+    font-weight: normal;
+    color: #FFF;
+    background-color: #013D83;
+    text-align: center;
+    line-height: 120%;
+    letter-spacing: .5em;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    margin-right:-2px;
+}
+
+#MainContentMenuWrapper {
+    display: table;
+    table-layout: fixed;
+    width:100%;
+    padding: 0;
+    border: thin solid black;
+    min-height:160px;
+}
+
+#ContentMenuHyperlinks {
+    padding: 0px 10px;
+    list-style: none;
+    display: table-cell;
+    width: 220px;
+    vertical-align: top;
+    height: 100%;
+    background-color: #f0f0f0;
+    margin: 10px;
+
+}
+
+#ContentMenuLinks {
+    /* T, R, B, L */
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+}
+
+#ContentMenuBanner {
+    padding: 0;
+
+    display: table-cell;
+    vertical-align: middle;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width:100%;
+}
+
+#ContentMenuBannerGuts {
+    width: 100%;
+    height: 100%;
+}
+
+#ContentMenuBanner img {
+    width: 100%;
+}

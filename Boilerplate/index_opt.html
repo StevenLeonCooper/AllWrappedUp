@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
+    <title id="MainTitle">Boilerplate Optimized for Google Page Speed</title>
+    <link href="/BFData/GlobalComponents/themes/classic/default.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #LoadingDiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: -1Px;
+            right: 0;
+            background: #e5e5e5 url('http://business.fullerton.edu/images/mihaylo-bg-new33.gif') repeat-x 0px 0px;
+            text-align: center;
+            color: #2255BB;
+            z-index: 9999;
+        }
+
+        #LoadingText {
+            position: absolute;
+            font-size: 300%;
+            top: 45%;
+            left: 45%;
+        }
+    </style>
+</head>
+<body>
+    <div id="LoadingDiv"><span id="LoadingText">LOADING ...</span></div>
+    <div id="Wrapper">
+        <div id="Header">
+            <div id="HeaderBanners"
+                 data-component="SubPageBanners"
+                 data-action="auto"
+                 data-source="global">
+            </div>
+            <div id="Header-Menu">
+                <div id="MainMenuContainer"
+                     data-component="SubPageNavMenu"
+                     data-action="auto"
+                     data-source="global">
+                </div>
+            </div>
+        </div>
+        <div id="MainContent">
+
+        </div>
+        <div id="Footer">
+            <div id="MainFooter"
+                 data-component="SubPageFooter"
+                 data-action="auto"
+                 data-source="global">
+            </div>
+        </div>
+    </div>
+    <script>
+        window.appSettings = {
+            ServiceUrl: "/BFData/API",
+            ComponentUrl: "components/",
+            GlobalComponentUrl: "/BFData/GlobalComponents/",
+            ScriptFiles: [
+                'libs/jquery-2.1.1.min.js',
+                'libs/jquery-serialize-object.js',
+                'libs/mustache.js',
+                'app/app.js',
+                'app/main.js',
+                'app/jobs.js',
+                'app/widgets.js'
+            ],
+            AppName: "NewSectionTemplate",
+            Theme: "classic",
+            DefaultPage: "Default",
+            BannerUrl: false
+        };
+    </script>
+    <script src="/BFData/GlobalComponents/scripts/app/setup.js"></script>
+</body>
+</html>
