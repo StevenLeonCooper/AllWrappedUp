@@ -1,5 +1,120 @@
 ﻿
-#SubPageBannersContainer
-{
-
+#MainBanners {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    overflow: hidden;
 }
+
+#MainBanners-CSUF {
+    position: relative;
+    height: 33px;
+}
+
+#MainBanners-CSUF-Wrapper {
+    width: 100%;
+    table-layout: fixed;
+    background: url('http://business.fullerton.edu/images/banners/csuf-banner-2014-960.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+#MainBanners-CSUF-Title {
+    width: 100%;
+    height: 33px;
+    cursor:pointer;
+}
+
+.invisibutton{
+    background-color:transparent;
+    color:transparent;
+    border:none;
+    cursor:pointer;
+    width:100%;
+}
+
+#mihaylo-banner-link{
+
+    display:block;
+    margin:0;
+    padding:0;
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:43px;
+}
+
+#department-banner-link{
+
+
+    display:block;
+    margin:0;
+    padding:0;
+
+    position:absolute;
+    top:34px;
+    left:0;
+    right:0;
+    bottom:0;
+}
+
+
+#MainBanners-Search {
+    width: 280px;
+    text-align: right;
+    padding-right: 8px;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#MainBanners-MihayloImage {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 78px;
+    
+    background-position: top left;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+
+#SearchContainerTable {
+    margin-top: 5px;
+    margin-right:10px;
+  
+}
+
+#FullertonBannerImage {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/*CLASSES*/
+
+.search-button {
+    background: url('http://business.fullerton.edu/images/search-btn.gif');
+    background-color: #FFF;
+    background-position: left top;
+    background-size: contain;
+    border: none;
+    height: 24px;
+    width: 32px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.search-box {
+    height: 20px;
+    background-color: #FFF;
+    border: none;
+    padding: 2px;
+}
+

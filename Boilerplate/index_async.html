@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
-    <title id="MainTitle">Development Boilerplate for Debugging</title>
+    <title id="MainTitle">Boilerplate Optimized for Google Page Speed</title>
 
-    
     <style>
+        /*Only the absolutely necessary styles are inline; these are needed even before content loads.*/
         body {
             position: absolute;
             top: 0;
@@ -45,36 +45,32 @@
                  data-component="SubPageBanners"
                  data-action="auto"
                  data-source="global">
-                <h1>This Content will be Replaced with a header.</h1>
             </div>
             <div id="Header-Menu">
                 <div id="MainMenuContainer"
                      data-component="SubPageNavMenu"
                      data-action="auto"
                      data-source="global">
-                    <nav>This Area for Navigation</nav>
                 </div>
             </div>
         </div>
         <div id="MainContent">
-            <h1>This is the important part</h1>
+
         </div>
         <div id="Footer">
             <div id="MainFooter"
                  data-component="SubPageFooter"
                  data-action="auto"
                  data-source="global">
-                <span aria-hidden="true">Usually the footer is less important for accesibility.</span>
             </div>
         </div>
     </div>
-    <script>
+    <script id="AppSettings">
         window.appSettings = {
-            ServiceUrl: "/API",
+            ServiceUrl: "/BFData/API",
             ComponentUrl: "components/",
             GlobalComponentUrl: "/GlobalComponents/",
-            ScriptFiles: [ //technicaly unused w/development index file
-                'libs/jquery-2.1.1.min.js',
+            ScriptFiles: [
                 'libs/jquery-serialize-object.js',
                 'libs/mustache.js',
                 'app/app.js',
@@ -82,19 +78,13 @@
                 'app/jobs.js',
                 'app/widgets.js'
             ],
+            jQueryFile: 'scripts/libs/jquery-2.1.1.min.js',
             AppName: "NewSectionTemplate",
             Theme: "classic",
             DefaultPage: "Default",
             BannerUrl: false
         };
     </script>
-    <script src="/GlobalComponents/scripts/libs/jquery-2.1.1.min.js"></script>
-    <script src="/GlobalComponents/scripts/libs/jquery-serialize-object.js"></script>
-    <script src="/GlobalComponents/scripts/libs/mustache.js"></script>
-    <script src="/GlobalComponents/scripts/app/app.js"></script>
-    <script src="/GlobalComponents/scripts/app/main.js"></script>
-    <script src="/GlobalComponents/scripts/app/jobs.js"></script>
-    <script src="/GlobalComponents/scripts/app/widgets.js"></script>
-
+    <script id="SetupScript" src="/GlobalComponents/scripts/app/setup.js"></script>
 </body>
 </html>

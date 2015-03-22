@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="DepartmentNavMenu">
+        <nav id="DepartmentNavWrapper">
+            <div class="menu-wrapper" data-section="FacultyInfo">
+                <a href="#Default" class="menu-title" title="Faculty Information">Faculty Info</a>
+                <ul class="menu-list"></ul>
+            </div>
+            <div class="menu-wrapper" data-section="StudentServices">
+                <a href="#Default" class="menu-title" title="Student Services">Student Services</a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#Advising">Advising</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#LearningAssistance">Learning Assistance</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#Resources">Resources</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#Scholarships">Scholarships</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="http://business.fullerton.edu/StudentServices/Tutoring/">Tutoring Center</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-wrapper" data-section="Program">
+                <a href="#Default" class="menu-title" title="Program Requirements">Program</a>
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <a href="#Courses">Courses</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#PR_Undergraduate">Undergraduate</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#PR_Graduate">Graduate</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="http://mihayloweb.fullerton.edu/undergraduate/honors/">Honors</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#RoadMaps">Roadmaps</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-wrapper" data-section="Centers">
+                <a href="#Centers" class="menu-title">Centers</a>
+                <ul class="menu-list"></ul>
+            </div>
+            <div class="menu-wrapper" data-section="Careers">
+                <a href="#Careers" class="menu-title">Careers</a>
+                <ul class="menu-list"></ul>
+            </div>
+            <div class="menu-wrapper" data-section="Clubs">
+                <a href="#Clubs" class="menu-title">Clubs</a>
+                <ul class="menu-list"></ul>
+            </div>
+            <div class="menu-wrapper" data-section="Contacts">
+                <a href="#Contact" class="menu-title">Contacts</a>
+                <ul class="menu-list"></ul>
+            </div>
+            <div class="menu-wrapper" data-section="Alumni">
+                <a href="#Alumni" class="menu-title">Alumni</a>
+                <ul class="menu-list"></ul>
+            </div>
+        </nav>
+        <script type="text/template" id="NewNavItem_template">
+            <div class="menu-wrapper custom-nav-wrapper" data-section="[[sectionName]]">
+                <a href="[[sectionLink]]" class="menu-title">[[sectionTitle]]</a>
+                <ul class="menu-list noDisplay"></ul>
+            </div>
+        </script>
+    </div>
+
+</body>
+</html>

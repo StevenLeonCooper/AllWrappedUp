@@ -5,7 +5,40 @@
 </head>
 <body>
     <div id="SubPageBanners">
-       <h1>Brave Frontier Global Unit Data &amp; Tools</h1>
+        <div id="MainBanners">
+            <div id="MainBanners-CSUF-Wrapper" class="display-table">
+                <div id="MainBanners-CSUF">
+                    <div id="MainBanners-CSUF-Title" onclick="document.location.href = 'http://fullerton.edu';" class="display-cell">
+
+                    </div>
+                    <div id="MainBanners-Search" role="search" class="display-cell">
+                        <table id="SearchContainerTable" cellpadding="0" cellspacing="0" border="0" height="24">
+                            <tr>
+                                <td>
+                                    <input id="SearchInputText"
+                                           class="search-box"
+                                           alt="Search Mihaylo College's website"
+                                           value="Search the College" type="text" />
+                                </td>
+                                <td>
+                                    <button type="button"
+                                            data-job="SearchGoogle"
+                                            data-query="SearchInputText"
+                                            id="SearchButton"
+                                            class="search-button"
+                                            title="Search"></button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="MainBanners-MihayloImage" 
+                 style="background-image: url('{{BannerUrl}}');">
+                <button class="invisibutton" type="button" data-click="redirectFromBanner" id="mihaylo-banner-link" title="Mihaylo College of Business">Mihaylo Home</button>
+                <button class="invisibutton" type="button" data-click="redirectFromBanner" id="department-banner-link" title="Main Page">Main Page</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

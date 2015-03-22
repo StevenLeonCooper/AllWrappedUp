@@ -2,27 +2,33 @@
 /*Standard Element Modifications*/
 body {
     /* Basic Body Positioning*/
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+
     /*Background & Border Colors*/
-    background-color: #FFFFFF;
-    background-repeat: repeat-x;
-    background-position: top left;
+
+    background-color:#FFFFFF;
+    background-image:url(images/FadingBackground.gif);
+    background-repeat:repeat-x;
+    background-position:top left;
+
     /* Font Styles*/
-    font-family: Verdana, Arial, sans-serif;
-    font-size: 100%;
-    color: #222;
+
+    font-family:Verdana, Arial, sans-serif;
+    font-size:100%;
+    color:#222;
+    
 }
 
 /* unvisited link */
 a:link {
     color: #06C;
-    text-decoration: underline;
+    text-decoration:underline;
 }
 
 /* visited link */
@@ -33,193 +39,194 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: #F60;
-    text-decoration: underline;
+    text-decoration:underline;
 }
 
 /* selected link */
 a:active {
-    color: #F60;
+     color: #F60;
 }
 
 hr {
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
 }
 
-button {
-    cursor: pointer;
+/* Page ID Modifications ---------------------------------------*/
+#Wrapper{
+    width:100%;
+	max-width:960px;
+	position:absolute;
+	margin:0 auto;
+	left:0;
+	right:0;
+	top:0px;
+    bottom:15px;
+	padding:20px;
+    box-sizing:border-box;
+    background-color:#FFF;
 }
 
-
-.modalContainer{
-    position:fixed;
+#Header{
+    position:absolute;
     top:0;
     left:0;
     right:0;
+    height:150px;
+    margin:0px;
+    
+    border-bottom:thin solid #000;
+}
+
+#FullertonBannerImage{
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+#MainContent{
+   position:absolute;
+   top:150px;
+   bottom:100px;
+   left:0;
+   right:0;
+   margin: 10px 5px 10px 5px;   
+   overflow-y:auto;
+   overflow-x:hidden;
+
+}
+
+#Footer{
+   position:absolute;
+   bottom:0;
+   height:100px;
+   margin:5px;
+   border-top:thin solid #000;
+}
+
+#MainMenu{
+    position:absolute;
+    top:0;
     bottom:0;
-    background-color:rgba(0, 0, 0, 0.5);
-    z-index:9999;
-}
-/* Page ID Modifications ---------------------------------------*/
-
-#LoadingDiv {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: -1Px;
-    right: 0;
-    background: #e5e5e5 url('http://business.fullerton.edu/images/mihaylo-bg-new33.gif') repeat-x 0px 0px;
-    text-align: center;
-    color: #2255BB;
-    z-index: 9999;
+    margin:5px;
+    padding:0;
 }
 
-#LoadingText {
-    position: absolute;
-    font-size: 300%;
-    top: 45%;
-    left: 45%;
+#MainMenu ul
+{
+    list-style:none;
+    padding-left:0;
+    margin-top:5px;
 }
 
-#MinifyNavButton{
-    width:200px;
+#MainMenu li{
+    padding-top:10px;
 }
 
-#Wrapper {
-    position: absolute;
-    margin: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+#MainBanners{
+    position:relative;
+    top:0;
+    left:0;
+    right:0;
+    height:120px;
+    padding:0;
+    overflow:hidden;
 }
 
-#ActionMenu {
-    position: absolute;
-    top: 10px;
-    left: 5px;
-    bottom: 10px;
-    width: 215px;
-    margin: 0;
-    padding: 0px;
-    z-index:99;
+#MainBanners-CSUF{
+    position:relative;
+    height:33px;
+    background:url('http://business.fullerton.edu/images/banners/csuf-banner-2014-960.png');    
 }
 
-#ContentWrapper {
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    left: 225px;
-    right: 5px;
-    margin: 0;
-    padding: 0px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border: none;
+#MainBanners-CSUF-Title
+{
+    width:100%;
+    height:33px;
 }
 
-#Header {
-    position: relative;
-    padding: 5px;
-    margin: 5px;
+
+#MainBanners-Search
+{
+    width:280px;
+    text-align:right;
+    padding-right:8px;
+    line-height:0;
+    margin:0;
+    padding:0;
 }
 
-#MainContent {
-    position: relative;
-    padding: 5px;
-    margin: 5px;
-}
-
-#Footer {
-    position: relative;
-    padding: 5px;
-    margin: 5px;
-}
-
-/*Special Animation Classess*/
-
-.CollapsedLeftNav {
-    margin-left: -225px !important;
+#MainBanners-MihayloImage{
+    position:relative;
+    top:0;
+    left:0;
+    right:0;
+    height:78px;
+    background-image:url(images/MihayloBanner.png);
+    background-position:top left;
+    background-repeat:no-repeat;
 }
 
 /*Page Class Modifications
 */
 
-
+.button
+{
+    cursor:pointer;
+}
 
 .modalContainer {
-    position: fixed;
-    z-index: 9999;
+    position:fixed;
+    z-index:9999;
+}
+
+.search-button{
+    background:url('http://business.fullerton.edu/images/search-btn.gif');
+    background-color:#FFF;
+    background-position:left top;
+    background-size:contain;
+    border:none;
+    height:24px;
+    width:32px;
+    margin:0;
+    padding:0;
+    cursor:pointer;
+}
+
+.search-box{
+    height:20px;
+    background-color:#FFF;
+    border:none;
+    padding:2px;
 }
 
 /*Multi-Column Layout*/
-.columnA {
-    left: 0;
-    right: auto;
-    width: 145px;
-    border-right: thin solid #000;
+.columnA
+{
+    left:0;
+    right:auto;
+    width:145px;
+    border-right:thin solid #000;
 }
 
-.columnB {
-    left: 150px;
-    right: 0;
+.columnB{
+    left:150px;
+    right:0;
+   
 }
 
 /* Table Display Layout */
 
-.display-table {
-    display: table;
+.display-table{
+    display:table;
 }
-
-.display-row {
-    table-layout: fixed;
-    display: table-row;
+.display-row{
+    table-layout:fixed;
+    display:table-row;
 }
-
-.display-cell {
-    table-layout: fixed;
-    display: table-cell;
-}
-
-
-.noDisplay{
-    display:none;
-
-}
-
-
-/*COLORS*/
-
-.waterbg {
-    background-color: #AABBFF;
-}
-
-.firebg {
-    background-color: #FFBBAA;
-}
-
-.earthbg {
-    background-color: #BBFFAA;
-}
-
-.thunderbg {
-    background-color: #FFFFAA;
-}
-
-.darkbg {
-    background-color: #BBAAEE;
-}
-
-.lightbg {
-    background-color: #FFFFFF;
-}
-
-.normalbg {
-    background-color: #CCCCCC;
-}
-
-.all {
-    background-color: #CCCCCC;
+.display-cell{
+    table-layout:fixed;
+    display:table-cell;
 }
 
 

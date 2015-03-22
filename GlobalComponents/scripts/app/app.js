@@ -5,7 +5,8 @@ window.appSettings = window.appSettings || {
     ServiceUrl: "NO_VALUE_SET",
     ComponentUrl: "NO_VALUE_SET",
     GlobalComponentUrl: "NO_VALUE_SET",
-    DefaultPage: "NO_VALUE_SET"
+    DefaultPage: "NO_VALUE_SET",
+    ComponentPath: "{{autoDir}}/{{fileType}}/{{componentName}}.{{fileExtension}}"
 };
 
 // The primary namespace for all things contained within the app
@@ -19,6 +20,41 @@ window.app = (function (settings) {
     var Components = {};
     var Properties = {};
     var Jobs = {};
+
+    // Safely adds an event handler without disturbing existing handlers of the same name.
+    Jobs.addEventHandler = function (name, callback, pushToTop) {
+
+        if (typeof this[name] === 'undefined') {
+            this[name] = callback;
+        }
+        else {
+            var original = this[name];
+
+            var callbackList = [this[name], callback];
+
+            if (pushToTop === true) {
+                callbackList.reverse();
+            }
+
+            var output = function (e) {
+
+                var target = e.target || window;
+
+                callbackList[0].call(target, e);
+
+                callbackList[1].call(target, e);
+            };
+
+            this[name] = output;
+        }
+
+    };
+
+    // Safely adds an event handler and pushes it to the top of the stack so it executes first. 
+    Jobs.prependEventHandler = function (name, callback) {
+        this.addEventHandler(name, callback, true);
+    };
+
     // Deciphering the Address Bar
     var Routing = (function () {
 
@@ -99,9 +135,15 @@ window.app = (function (settings) {
         return ro;
     })();
 
-    // Functions that run after everything is loaded
+    // Functions that run after everything is loaded + CSS Theme Injection
     var LastMinuteCallbackList = [function () {
         window.app.ActiveHash = Routing.getHash("hash") || window.location.hash.split("?")[0];
+
+        var cssTheme = settings.theme || "classic";
+
+        var cssTag = '<link href="/GlobalComponents/themes/' + cssTheme + '/default.css" rel="stylesheet" type="text/css" />';
+
+        $(document.head).append(cssTag);
     }];
 
     // Wrapper for all AJAX Operations
@@ -441,13 +483,39 @@ window.app = (function (settings) {
                     rootUrl = settings.GlobalComponentUrl;
                 }
 
+                var preparePath = function (name, type, extension) {
+
+                    if (extension.indexOf(".") !== 0) {
+                        extension = "." + extension;
+                    }
+
+                    var PathContext = {
+                        siteRoot: settings.GlobalComponentUrl,
+                        componentRoot: settings.ComponentUrl,
+                        autoRoot: rootUrl,
+                        fileType: type,
+                        fileExtension: extension,
+                        componentName: name,
+                    };
+
+                    var PathTemplate = settings.ComponentPath || "{{autoRoot}}/{{fileType}}/{{componentName}}{{fileExtension}}";
+
+                    PathTemplate = PathTemplate.replace(/\{\{/g, "{{&");
+
+                    var boundPath = Template.bind(PathTemplate, PathContext).data.replace(/\/\//g, "/");
+
+                    var randomToken = Math.random().toString();
+
+                    return boundPath + "?token=" + randomToken;
+                };
+
                 var fileExtension = this.FileExtension || "html";
 
-                var htmlUrl = rootUrl + "html/" + name + "." + fileExtension + "?token=" + Math.random().toString();
+                var htmlUrl = preparePath(name, "html", fileExtension); // rootUrl + "html/" + name + "." + fileExtension + "?token=" + Math.random().toString();
 
-                var cssUrl = rootUrl + "css/" + CssFile + ".css?token=" + Math.random().toString();
+                var cssUrl = preparePath(CssFile, "css", ".css"); // rootUrl + "css/" + CssFile + ".css?token=" + Math.random().toString();
 
-                var jsUrl = rootUrl + "js/" + name + ".js";
+                var jsUrl = preparePath(name, "js", ".js"); // rootUrl + "js/" + name + ".js";
 
                 var cssTagId = name + "CSS";
 
@@ -653,6 +721,13 @@ window.app = (function (settings) {
                 });
             }
             else {
+
+                var existingCom = Components[componentName + parentSelector];
+
+                existingCom.Data.Options = eventObject.Options;
+
+                existingCom.Data.DataContext = eventObject.DataContext;
+
                 Components[componentName + parentSelector].quickRender();
             }
 

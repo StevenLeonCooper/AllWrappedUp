@@ -86,27 +86,41 @@
         }
     }
 
+    //This should be moved to app.js probably.
     function HandleEvent(eventObject, eventType) {
 
-        var sender = eventObject.target;
+        if (eventType.indexOf("Key") === 0) {
+            var whichKey = eventObject.which || false;
 
-        var $target = $(sender);
+            if (whichKey !== false) {
+                var callback = app.Jobs[eventType + whichKey] || function () { };
 
-        var targetId = $target.attr("id");
+                if (typeof callback === typeof function () { }) {
+                    callback.call(window, eventObject);
+                }
+            }
+        } else {
 
-        var targetJob = $target.data(eventType) || ($target.data("job") || false);
+            var sender = eventObject.target || false;
 
-        var targetParams = $target.data("params") || ($target.data("options") || "undefined");
+            var $target = $(sender);
 
-        targetParams = targetParams.split(" ").join();
+            var targetId = $target.attr("id");
 
-        var paramArray = $.merge([eventObject], targetParams.split(";"));
+            var targetJob = $target.data(eventType) || ($target.data("job") || false);
 
-        var jobAction = app.Jobs[targetJob] || function (params) { };
+            var targetParams = $target.data("params") || ($target.data("options") || "undefined");
 
-        if (targetJob !== false && jobAction !== false) {
+            targetParams = targetParams.split(" ").join();
 
-            jobAction.apply(sender, paramArray);
+            var paramArray = $.merge([eventObject], targetParams.split(";"));
+
+            var jobAction = app.Jobs[targetJob] || function (params) { };
+
+            if (targetJob !== false && jobAction !== false) {
+
+                jobAction.apply(sender, paramArray);
+            }
         }
     }
 
@@ -119,17 +133,6 @@
         if (targetElement.length > 0) {
             targetElement[0].scrollIntoView(true);
         }
-    };
-
-    app.Jobs.SearchGoogle = function (e, sourceId) {
-
-        var querySelector = $(this).data("query") || sourceId;
-
-        var query = $("#" + querySelector).val() || "CSUF Mihaylo";
-
-        var SearchUrl = "https://www.google.com/search?as_sitesearch=http%3A%2F%2Fbusiness.fullerton.edu&as_q=";
-
-        window.location.href = SearchUrl + query;
     };
 
     // EVENT BINDING
@@ -153,14 +156,15 @@
             // Completed
         });
 
+
         var scrollTo = app.Routing.getUrlParam("section") || false;
 
         if (scrollTo !== false) {
-            app.Jobs.ScrollTo(scrollTo);
+            app.Jobs.ScrollTo(e, scrollTo);
         }
     };
 
-    // The simplest form of binding
+    // The simplest form of binding, perhaps move to app.js?
     $(document.body).click(function (e) {
 
         HandleEvent(e, "click");
@@ -173,8 +177,19 @@
 
     $(document.body).keydown(function (e) {
 
-        HandleEvent(e, "keydown");
+        HandleEvent(e, "KeyDown");
     });
+
+    $(document.body).keyup(function (e) {
+
+        HandleEvent(e, "KeyUp");
+    });
+
+    $(document.body).keypress(function (e) {
+
+        HandleEvent(e, "KeyPress");
+    });
+
 
     $(document.body).click(function (e) {
 

@@ -1,25 +1,30 @@
-﻿/// <reference path="C:\Solutions\Business.Fullerton.Edu\Root\GlobalComponents/scripts/app/app.js" />
+﻿/// <reference path="../scripts/app/app.js" />
 
 
 window.app.onReady("MainContentMenu", function () {
 
-    function UpdateBanner() {
+    var defaultSection = this.Data.Options.section || false;
 
-        var ActiveSection = window.location.hash.replace("#", "").split("/")[0];
+    var defaultBannerUrl = this.Data.Options.banner || false;
+
+    function UpdateMenu() {
+
+        var ActiveSection = defaultSection || app.Routing.hashValue;
 
         var ActiveMenu = ActiveSection + "Menu";
 
         var MenuContents = $("#" + ActiveMenu).html();
 
-        $("#ContentMenuHyperlinks").empty().append(MenuContents);
+        $("#ContentMenuHyperlinks").html(MenuContents);
 
-        var BannerUrl = "assets/banners/" + ActiveMenu + ".jpg";
+        var BannerUrl = defaultBannerUrl || ("assets/banners/" + ActiveMenu + "default.jpg");
 
         $("#ContentMenuBanner").css({ backgroundImage: 'url(' + BannerUrl + ')' });
+       
     };
 
-    $(document).ready(UpdateBanner);
+    UpdateMenu();
 
-    window.addEventListener("hashchange", UpdateBanner)
+    //window.addEventListener("hashchange", UpdateMenu)
 
 });

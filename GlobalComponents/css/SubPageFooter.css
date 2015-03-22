@@ -1,6 +1,111 @@
-﻿
+﻿#footer {
+	clear: both;
+	padding: 0px;
+	margin: 5px 0;
+	display: inline-block;
+	width: 100%; 
+	background-color: #dedede;
+	text-align: center;
+}
+#footer ul {
+	padding: 3px 0px; 
+	margin: 0px; 
+	list-style: none; 
+}
+#footer li {
+	display: inline;
+	font-weight: bold;
+}
+#footer li a {
+	padding: 0 12px;
+	font-size: 0.75em;
+	text-transform: uppercase;
+	color: #666666;
+	text-decoration: none;
+	font-weight: bold;
+}
+#footer li a:hover {
+	color: #ff6600;
+}
+/*=== Footer plain bg===*/
+#footer-v2 {
+	clear: both;
+	padding: 0px;
+	margin: 25px auto 5px;
+	display: inline-block;
+	width: 100%;
+	background-color: #ffffff;
+	text-align: center;
+	border-bottom: 2px #e5e5e5 solid;
+}
+#footer-v2 ul {
+	padding: 5px 0px; 
+	margin: 0px; 
+	list-style: none; 
+}
+#footer-v2 li {
+	display: inline;
+	font-weight: bold;
+}
+#footer-v2 li a {
+	padding: 0 20px;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	color:#808080;
+	text-decoration: none;
+	font-weight: bold;
+	border-right: 1px #c0c0c0 solid
+}
+#footer-v2 li a:hover {
+	color: #ff6600;
+}
 
-#SubPageFooterContainer
-{
+#footernote {
+	background-color:#ffffff;
+	color: #666666;
+	font-size: .8em;
+	height: 45px;
+	line-height: 130%;
+	padding: 10px;
+	text-align: left;	
+}
+#footernote #csuflogo{
+	float: left;
+	width: 22%;
+}
 
+#footernote img{
+	float: left;
+	padding: 0 10px;
+}
+
+#footernote #mihaylo-note{
+	float: right; 
+	width: 78%;
+}
+
+#footernote p{
+	padding-top: 3px
+}
+
+/* mihaylo address on footer */
+.font-bold{
+	font-weight: bold
+}
+
+@media screen and (max-width:550px){
+    #footernote{
+        height:auto!important;
+    }
+    #footernote img{
+        float:none!important;
+        padding:0!important;
+    }
+    #csuflogo{
+        float:none !important;
+    }
+    #mihaylo-note{
+        float:none!important;
+        width:100%!important;
+    }
 }

@@ -1,0 +1,152 @@
+﻿<script type="text/template" id="RssFeedWidget_template">
+    <div class="MainRssContainer">
+        <div class="RssContentWrapper" style="margin-top: 15px">
+            <div class="highlight_content feed-content" style="padding: 0px 12px">
+                <div class="oldFeedBurnerClass" id="economist/ykeOksei8g8fb0l8noceab55000n5o">
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    (function () {
+
+        var RssFeedCollection = (eval("try{ eval('{{context}}'); } catch(err) {false;}") || window.rssFeeds);
+
+        function processCollection(RssFeedCollection) {
+            for (var rssFeed in RssFeedCollection) {
+
+                if (RssFeedCollection.hasOwnProperty(rssFeed)) {
+                    (function (target) {
+
+                        var data = $("#RssFeedWidget_template").text();
+
+                        RssFeedCollection[target] = RssFeedCollection[target] || {};
+
+                        RssFeedCollection[target].EventWidget = {
+                            Debug: {},
+                            EventWidget: $(data),
+                            Debug: data
+                        };
+
+                        $("#" + target).html(data);
+
+                        installFeed(target, RssFeedCollection[rssFeed]);
+
+                    })(rssFeed);
+                }
+            }
+        }
+
+        function parseRSS(url, callback) {
+
+            $.ajax({
+                url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+                dataType: 'json',
+                success: function (data) {
+                    callback(data.responseData.feed);
+                }
+            });
+        }
+
+        function installFeed(feedName, feedObject) {
+
+            
+
+            var FeedName = feedName || "EventWidget";
+
+            var FeedObject = feedObject || {};
+
+            var feedUrl = (FeedObject.FeedUrl || FeedObject.feedurl) || "http://bizblogs.fullerton.edu/feed/";
+
+            var feedFilter = FeedObject.FeedCategory || false;
+
+            var feedLimit = FeedObject.FeedLimit || 7;
+
+            var feedSnippets = !FeedObject.DisableSnippets;
+
+            var feedTitleLink = !FeedObject.DisableFeedTitle;
+
+
+            parseRSS(feedUrl, function (rss) {
+
+                var FeedTitleLink = "<p class='feedTitle FeedTitle'><a href='" + rss.link + "'>" + rss.title + "</a></p>";
+
+                if (feedTitleLink === false) {
+                    FeedTitleLink = "";
+                }
+
+                $("#" + FeedName + " .feed-content")
+                    .empty()
+                    .append(FeedTitleLink)
+                    .append("<ul class='FeedList' id='" + FeedName + "-rss-ul' style=''>");
+
+                $("#" + FeedName + "-rss-ul").empty();
+
+                for (var i = 0; i < feedLimit; i++) {
+                    var value = rss.entries[i];
+
+                    var Snippet = value.contentSnippet;
+
+                    if (feedSnippets === false) {
+                        Snippet = "";
+                    }
+
+                    if (feedFilter === false || (value.category === feedFilter)) {
+                        $("<li class='FeedListItem' style='list-style: url(\"/GlobalComponents/assets/list-arrow.gif\");'>")
+                            .appendTo("#" + FeedName + "-rss-ul")
+                            .append("<span class='headline FeedHeadline'><a href='" + value.link + "'>" + value.title + "</a></span>")
+                            .append("<div class='FeedSnippet'>" + Snippet + "</div>")
+                    }
+
+                }
+
+                window.ecNewsRss = rss;
+            });
+        }
+
+        $(document).ready(function () {
+
+            processCollection(RssFeedCollection);
+        });
+
+        $(document).on("WidgetEcho.RssFeeds", function (e, target, data) {
+
+            var targetElement = $("#" + target) || false;
+
+            var options = data.options || false;
+
+            var DynamicFeedCollection = {};            
+
+            if (targetElement !== false && options !== false) {
+                var mainOptions = options.split(" ").join("").split(",");
+
+                var RssFeedObject = { FeedUrl: data.feedurl || "ERROR" };
+
+                for (var i = 0; i < mainOptions.length; i++) {
+                    var subject = mainOptions[i].split(":");
+
+                    var key = subject[0];
+                    var value = subject[1].toLowerCase();
+
+                    if (isNaN(value)) {
+                        if (value === "false") { value = false; }
+                        if (value === "true") { value = true; }
+                    } else {
+                        value = parseInt(value);
+                    }
+                    RssFeedObject[key] = value;
+                }
+
+                DynamicFeedCollection[target] = RssFeedObject;
+
+              
+
+                processCollection(DynamicFeedCollection)
+                
+            }
+
+        });
+    })();
+
+</script>

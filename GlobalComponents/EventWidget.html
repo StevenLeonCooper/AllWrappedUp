@@ -1,0 +1,150 @@
+﻿<div id="column-left">
+    <a name="highlights"></a>
+    <div class="highlight_box3">
+        <div class="highlight_header">
+            <a name="event">Recent Events</a>
+        </div>
+        <div class="highlight_content">
+            <a href="../../../events/econ_forecast.htm">
+                <img alt="2014 20th Annual Econ Forecast" src="images/EconForecastMiniBanner2014.jpg" style="margin-bottom: 10px" width="234" />
+            </a><br />
+            <strong>Date:</strong> Thursday, October 23, 2014<br />
+            <strong>Location:</strong> Hotel Irvine<br />
+            <br />
+            <a href="http://business.fullerton.edu/centers/ceaf/reports.htm">
+                Forecast Reports »
+            </a><br />
+        </div>
+    </div>
+    <div class="highlight_box3" style="margin-top: 15px">
+        <div class="highlight_content feed-content" style="padding: 0px 12px">
+
+            <div class="oldFeedBurnerClass" id="economist/ykeOksei8g8fb0l8noceab55000n5o">
+
+                <script>
+
+                    function parseRSS(url, callback) {
+
+                        $.ajax({
+                            url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+                            dataType: 'json',
+                            success: function (data) {
+                                callback(data.responseData.feed);
+                            }
+                        });
+                    }
+
+                    var FeedName = $("#column-left").closest(".rss-widget").attr("id") || "EventWidget";
+
+                    var FeedObject = window.rssFeeds[FeedName] || {};
+
+                    var feedUrl = FeedObject.FeedUrl || "http://bizblogs.fullerton.edu/feed/";
+
+                    var feedFilter = FeedObject.FeedCategory || false;
+
+                    var feedLimit = FeedObject.FeedLimit || 7;
+
+                    parseRSS(feedUrl, function (rss) {
+                        $("#" + FeedName + " .feed-content")
+                            .append("<p class='feedTitle'><a href='" + rss.link + "'>The Economist: " + rss.title + "</a></p>")
+                            .append("<ul id='" + FeedName + "-rss-ul' style='margin-left:-20px;'>");
+
+                        for (var i = 0; i < feedLimit; i++) {
+                            var value = rss.entries[i];
+
+                            if (feedFilter === false || (value.category === feedFilter)) {
+                                $("<li style='list-style: url(\"/GlobalComponents/assets/list-arrow.gif\");'>")
+                                    .appendTo("#" + FeedName + "-rss-ul")
+                                    .append("<span class='headline'><a href='" + value.link + "'>" + value.title + "</a></span>")
+                                    .append("<div>" + value.contentSnippet + "</div>")
+                            }
+
+                        }
+
+                        window.ecNewsRss = rss;
+                    });
+
+                </script>
+
+                <noscript>
+                    <p>
+                        Subscribe to RSS headline updates from:
+                        <a href="http://feeds.[!][REPLACEWITHNEWRSS].com/economist/ykeO">
+
+                        </a>
+                        <br />
+
+                        Powered by [!][REPLACEWITHNEWRSS]
+                    </p>
+                </noscript>
+
+            </div>
+        </div>
+    </div>
+    <div class="highlight_box3" style="margin-top: 15px">
+        <div class="highlight_content" style="border: 0">
+            <div class="table-div">
+                <div class="row-div">
+                    <div class="cell-div">
+                        <span class="contact-person">
+                            <strong>Director: </strong>
+                        </span>
+                    </div>
+                    <div class="cell-div">
+                        <a href="mailto:apuri@fullerton.edu">
+                            <strong>
+                                Anil K. Puri,
+                                Ph.D.
+                            </strong>
+                        </a> <br />
+                        <span>(657) 278-2592</span>
+                    </div>
+                </div>
+                <div style="margin-bottom: 5px; width: 100%;">
+                </div>
+                <div class="row-div">
+                    <div class="cell-div">
+                        <span class="contact-person">
+                            <strong>
+                                Co-Director:
+                            </strong>
+                        </span>
+                    </div>
+                    <div class="cell-div">
+                        <a href="mailto:efarka@fullerton.edu">
+                            <strong>
+                                Mira Farka,
+                                Ph.D.
+                            </strong>
+                        </a> <br />
+                        <span>(657) 278-7281</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="highlight_box3" style="margin-top: 15px">
+        <div class="highlight_header">
+            <a href="http://www.flickr.com/photos/csufmihaylo/sets/72157637916709766/" target="_blank">
+                Past Event Photos
+            </a>
+        </div>
+        <div class="highlight_content" style="font-weight: normal">
+            <a href="https://www.flickr.com/photos/csufmihaylo/sets/72157645295455419/">
+                <strong>Economic Forecast Conference Midyear 2014</strong>
+            </a>
+            <hr />
+            <a href="http://www.flickr.com/photos/csufmihaylo/sets/72157637916709766/">
+                <strong>Economic Forecast Conference Fall 2013</strong>
+            </a>
+        </div>
+    </div>
+    <div class="highlight_box3" style="margin-top: 15px">
+        <div class="highlight_header">
+            <a href="http://mam.econoday.com/" target="_blank">
+                Economic Calendar
+                »
+            </a>
+        </div>
+    </div>
+</div>

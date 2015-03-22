@@ -1,0 +1,235 @@
+﻿/*RESET CSS BROWSER COMPATABILITY*/
+/*==========================================================================================
+Filename:	reset.css	v1.0 | 20080212
+Purpose:	overwrite default browser CSS styles to create a consistent baseline to
+			inherit from. see http://meyerweb.com/eric/tools/css/reset/
+===========================================================================================*/
+html, body, div, span, applet, object, iframe,
+p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd,
+form, label, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	background: transparent;
+} /* removed fieldset and legent */
+body {
+	line-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	margin-top:10px;
+    margin-bottom:4px;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+}
+
+p{
+    line-height:140%;
+}
+
+ul{
+    line-height:150%;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*END RESET CSS PORTION*/
+
+/*Standard Element Modifications*/
+body {
+    /* Basic Body Positioning*/
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /*Background & Border Colors*/
+    background: #e5e5e5 url('http://business.fullerton.edu/images/mihaylo-bg-new33.gif') repeat-x 0px 0px;
+    /* Font Styles*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .85em;
+    color: #222;
+    line-height:1;
+}
+
+h1 { 
+    font-size: 2em; 
+    font-weight: normal; 
+    color: #ff6600; 
+    margin: 0 0 .5em 0; 
+
+}
+h2 { 
+    font-size: 1.7em; 
+}
+h3 { 
+    font-size: 1.2em; 
+   }
+
+p { margin: 0 0 .75em 0; }
+a, a:visited{ color: #06c; text-decoration: none; }
+a:hover { color: #ff6600; }
+
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Fix Mods*/
+.clear-fix {
+	clear: both;
+	line-height: 1px;	
+}	
+
+/* Page ID Modifications ---------------------------------------*/
+#Wrapper {
+    width: 100%;
+    max-width: 960px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color:#FFF;
+
+}
+
+#Header {
+    position: relative;
+    width:100%;
+    border-bottom: thin solid #000;
+}
+
+#MainContent {
+    position: relative;
+    margin-top:10px;
+    padding: 10px;
+    background-color: #FFF;
+    min-height:600px;
+}
+
+#Footer {
+    position: relative;
+    height: 100px;
+    margin: 5px;
+    border-top: thin solid #AAA;
+}
+
+#MainMenu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 5px;
+    padding: 0;
+}
+
+    #MainMenu ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 5px;
+    }
+
+    #MainMenu li {
+        padding-top: 10px;
+    }
+
+
+/*Page Class Modifications
+*/
+
+.hidden{
+    display:none !important;
+}
+
+
+
+.button {
+    cursor: pointer;
+}
+
+.modalContainer {
+    position: fixed;
+    z-index: 9999;
+}
+
+
+
+/*Multi-Column Layout*/
+.columnA {
+    left: 0;
+    right: auto;
+    width: 145px;
+    border-right: thin solid #000;
+}
+
+.columnB {
+    left: 150px;
+    right: 0;
+}
+
+/* Table Display Layout */
+
+.display-table {
+    display: table;
+}
+
+.display-row {
+    table-layout: fixed;
+    display: table-row;
+}
+
+.display-cell {
+    table-layout: fixed;
+    display: table-cell;
+}
+
+.quote-cite{
+    margin-right:10%;
+    text-align:right;
+    font-weight:bold;
+}
+
+blockquote{
+    font-style:italic;
+}

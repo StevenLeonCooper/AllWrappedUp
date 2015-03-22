@@ -1,68 +1,312 @@
 ﻿
-.ElementSelector
-{
-    min-width:180px;
+#topmenu, #topmenu2nd {
+    font-size: .85em;
+    margin: 0 auto;
+    max-width: 960px;
+    padding:0;
+    width: 100%;
+}
+.menu-dropdown{
+	padding: 3px 0 3px 7px; 
+	margin:0; 
 }
 
-button {
-    min-width:180px;
-    margin:3px;
+.menu-dropdown li a {
+    text-decoration:none;
+}
+.menu-dropdown#menu2{
+	padding-left: 7px;
+}
+#topmenu{
+	position: relative; 
+	z-index: 500/*for toggleMenu */
+}
+.toggleMenu {
+    display: none; 
+    font-family: Arial, Helvetica, sans-serif;
+	background: #0178d4 url('http://business.fullerton.edu/images/menu-arrow-mobile.png') no-repeat right 55%;
+	color: #fff; 
+	padding: 8px 20px 6px 10px;  
+	font-weight: 700;
+	letter-spacing: 1px;
+	position: absolute;
+	right: 4px; top: -26px;
+	text-decoration: none;
+	font-size: 1em;	
+	text-transform: uppercase;	
+	border-radius:2px;	
+	z-index: 500;
+}
+#topmenu a.toggleMenu:hover{
+	color: #fff;
+}
+.menu-dropdown {
+     
+    line-height:100%;
+    list-style: none;
+     *zoom: 1;
+     background: #dedede;
+}
+.menu-dropdown:before,
+.menu-dropdown:after {
+    content: " "; 
+    display: table; 
+}
+.menu-dropdown:after {
+    clear: both;
+}
+.menu-dropdown ul {
+    list-style: none; 
+    padding-left: 10px;
+    width: 16em; 
 }
 
-#UpdateWrapper{
-    text-align:center;
+.menu-dropdown a {
+    padding: 5px 8px;
+    color: #434343;
+}
+.menu-dropdown li:hover > a, .menu-dropdown#menu2 li li:hover > a {   
+    color: #ff6600;
+}  
+
+.menu-dropdown li {
+    position: relative;
+    font-weight: bold;
+    padding: 0 12px 0 3px;
+}
+.menu-dropdown > li {
+    float: left;    
+}
+.menu-dropdown > li > a {
+    display: block;
+}
+.menu-dropdown li ul {
+    border-left: 1px #dedede solid;
+    border-right: 1px #dedede solid;
+    left: -9999px;
+    margin:0; 
+    padding:0;
+    position: absolute;
 }
 
-#UpdateButton{
-    margin-left:auto;
-    margin-right:auto;
-    padding-top:5px;
-    padding-bottom:5px;
+.menu-dropdown li ul li{
+	font-weight: normal;
+	padding: 0;	
+	
+} 
+.menu-dropdown > li.hover > ul {
+    left: -7px;
+}
+.menu-dropdown li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+
+.menu-dropdown li li a {
+    background-color: #ffffff;	
+    color: #494949;
+    border-bottom: 1px solid #dedede;
+    display: block; 
+    padding: 7px; 
+    position: relative;
+    z-index:100;        
+}
+.menu-dropdown li li li a {
+    z-index: 200;
+    background: #ffffff;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.menu-dropdown li.gift-button{
+	text-indent: -9999px;
+	width: 148px;
+	margin: 0;
+	float: right; 
+	height: 22px;
+    padding: 0;z-index:21
+}
+
+.menu-dropdown li.gift-button a.gift-button1{
+	width: 148px;
+	height: auto; padding: 5px 0;
+	background: url('http://business.fullerton.edu/images/gift148.png') no-repeat;
+}
+
+.menu-dropdown li.gift-button a.gift-button1:hover{
+    background-position: 0 -22px; 
+}
+
+
+.menu-dropdown#menu2{
+    list-style: none;
+     *zoom: 1;
+     background:#646464/*#e68400;*/
+}
+#menu2 ul.centers{
+	width: 340px
+}
+.menu-dropdown#menu2 li{
+	background-image: none;
+}
+.menu-dropdown#menu2 a{
+    color: #ffffff;
+}
+.menu-dropdown#menu2 li li a{
+	color: #494949;
+	padding: 7px;
+}
+.menu-dropdown#menu2 li:hover > a {
+	color: #c0c0c0;
+}
+/* Layout - for width 768px - 800px */
+@media screen and (min-width:768px) and (max-width:820px){
+	
+.menu-dropdown, .menu-dropdown#menu2{
+	padding-left: 3px;
+}
+.menu-dropdown li {
+    position: relative;
+    font-weight: bold;
+    padding: 0 3px;
+
+}
+}
+/* Layout - width < 767px */
+@media screen and (max-width:767px){
+.menu-dropdown > li {
+    float: none;
+    padding: 3px 0;	
+    border-bottom: 1px #c0c0c0 solid;	
+    font-size: 1em;
+    text-indent: 3px
+
+}
+.menu-dropdown > li.last {
+	border-bottom:0
+}
+.menu-dropdown > li > .parent {
+    background-position: 95% 50%;
+}
+.menu-dropdown li li .parent {
+    background-color: #fff;  
+   
+}
+.menu-dropdown ul {
+    display: block;
+    width: 100%;
+}
+
+.menu-dropdown > li.hover > ul , .menu-dropdown li li.hover ul {
+    position: static;
+}
+
+.gift-button{
+    line-height:100% !important;
+}
+
+.menu-dropdown li.gift-button{
+	text-indent: 1px;
+	float: left; border: 0; 
+}
+
+.menu-dropdown li.gift-button a.gift-button1{
+	background-image: none; color: #ff6600; padding: 8px
+}
+
+.menu-dropdown li.gift-button a.gift-button1:hover{
+    color:  #ff6600
+}
+
+.menu-dropdown, .menu-dropdown#menu2{
+	padding-left: 0;
+}
+#menu2 ul.centers{
+	width: 100%
+}
+#topmenu, #topmenu2nd {
+	z-index: 21
+}
+
+.menu-dropdown li ul {
+    border-left: 0;
+}
+
+
+}
+/* Layout - 551 px< width < 767px */
+@media screen and (min-width:576px) and (max-width:767px){
+#topmenu a.toggleMenu:hover, .menu-dropdown li.gift-button a:hover { color: #efefef;  }
+.toggleMenu {
+	right: 8px;
+	background-color: #0178d4; 
+	color: #ffffff;
+
+}
+.active {
+    display: block;
+}
+}
+/* Layout - width < 550px */
+@media screen and (max-width:575px){
+.toggleMenu {
+    right: 7px;
+	top: -27px
+
+}
+.active {
+    display: block;
+}
+.menu-dropdown > li.last {
+	border-bottom:0
+}
+
+.menu-dropdown li li .parent {
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}	
+.menu-dropdown {
+    font-size: .65em;
+
+}
+.menu-dropdown li.gift-button a.gift-button1{
+	font-size: 1.35em
+}
+
+}
+/* Layout - width < 551px; android landscape 550; Nexus One 533 */
+@media screen and (max-width:550px){
+.toggleMenu {
+    right: 7px;
+	top: -26px
+
+}
+.menu-dropdown, .menu-dropdown li.gift-button a.gift-button1 {
+    font-size: .95em;
 
 }
 
-#MainMenu{
-    margin:10px;
-    padding:10px;
 }
 
-#MainMenu li
-{
-    margin:0px;
-    padding:0px;
-}
-
-#devnotes{
-    padding:5px;
-}
-
-#devnotes ul{
-
-    padding-left:5px;
-    margin-left:5px;
+/* Layout - width < 506px; iPhone 3&4 landscape 480; Nexus 4 Portrait 384, Samsung Galaxy 5 Landscape 427 */
+@media screen and (max-width:505px){
+.menu-dropdown {
+    font-size: .65em;
 
 }
+.menu-dropdown li.gift-button a.gift-button1{
+	font-size: 1.5em
+}
+}
+/* Layout - width 360px; HTC, Samsung Galaxy S3,S4 Portrait 
+          - width < 340px; iPhone3,4,5 & android Portrait */
+@media screen and (max-width:381px){
+.menu-dropdown {
+    font-size: .95em;
 
-#devnotes ul li
-{
-    font-size:75%;
+}
+.menu-dropdown li.gift-button a.gift-button1{
+	font-size: 1em
 }
 
-.Fixed-TopLeft
-{
-    position:fixed;
-    top:15px;
-    left:10px;
-    z-index:100;
-}
-
-.nav-drop{
-    width:120px;
-    margin:5px;
-}
-
-
-.nav-block{
-    padding:3px;
-    margin:4px;
 }

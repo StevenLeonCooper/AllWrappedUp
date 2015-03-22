@@ -1,9 +1,6 @@
 ﻿/// <reference path="../libs/jquery-2.1.1.js" />
 
 var ImageSlider = (function () {
-
-    debugger;
-
     window.SliderActive = true;
     window.SliderBusy = false;
 
